@@ -27,3 +27,15 @@ class IntegerProcessor:
                 even_squares.append(str(number ** 2))
             else:
                 odd_cubes.append(str(number ** 3))
+
+        with open(self.double_file, "w") as double_file:
+            double_file.write("\n".join(even_squares))
+
+        with open(self.triple_file, "w") as triple_file:
+            triple_file.write("\n".join(odd_cubes))
+
+        print("Done. double.txt and triple.txt created.")
+
+
+integer_processor = IntegerProcessor("integers.txt", "double.txt", "triple.txt")
+integer_processor.create_double_and_triple_files()
